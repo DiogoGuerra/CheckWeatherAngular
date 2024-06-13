@@ -1,0 +1,10 @@
+
+<div class="search-bar-container">
+  <div class="search-bar-input-wrapper">
+    <input type="text" class="search-bar-input" [placeholder]=" placeholder_text " (keydown.enter)="onEnterKey()">
+    <div class="search-bar-icon">
+      <img src="assets/svg/search.svg">
+    </div>
+  </div>
+  <button [disabled]="disableButton" [class.disabled-button]="disableButton"  class="search-bar-button" (click)="onClick()">Search</button>
+</div>

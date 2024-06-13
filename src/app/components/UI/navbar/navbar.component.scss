@@ -1,0 +1,17 @@
+@import "../../../../styles/colors/colors";
+
+.custom-toolbar {
+  background-color: $white;
+  color: $primary;
+  height: 4rem;
+}
+
+.title {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

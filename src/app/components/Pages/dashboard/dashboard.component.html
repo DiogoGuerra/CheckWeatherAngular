@@ -1,0 +1,142 @@
+<div class="parent-container">
+  <div class="container">
+     <!--Search-->
+    <div class="container-searchbar">
+      <app-searchbar
+        [placeholder_text]="this.searchBarPlaceholder"
+        [disableButton]="false"
+        (searchClicked)="handleSearch($event)"
+      ></app-searchbar>
+    </div>
+    <!-- Error message -->
+    <div class="error-message" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+ 
+
+    <div class="grid-container" *ngIf="weatherData">
+      <!--Weather-->
+      <mat-tab-group>
+        <mat-tab label="Weather">
+          <div class="container-weather">
+            <mat-grid-list cols="2" rowHeight="fit">
+            <div class="container-gap">
+              <h2>Weather in {{ weatherData.location.name }}</h2>
+              <img
+                [src]="weatherData.current.condition.icon"
+                alt="Weather icon"
+              />
+            </div>
+            <mat-grid-tile>
+              <p>
+              <mat-icon>thermostat</mat-icon>
+              Temperature: {{ getTemperature() }}°{{
+                toggleForm.get('unit')?.value === 1 ? 'C' : 'F'
+              }}
+            </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <p>
+              <mat-icon>cloud</mat-icon>
+              Condition: {{ weatherData.current.condition.text }}
+            </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+             <p>
+              <mat-icon>air</mat-icon>
+              Wind Speed: {{ weatherData.current.wind_kph }} kph
+            </p> 
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <p>
+              <mat-icon>explore</mat-icon>
+              Wind Direction: {{ weatherData.current.wind_dir }}
+            </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <p>
+              <mat-icon>opacity</mat-icon>
+              Humidity: {{ weatherData.current.humidity }}%
+            </p>
+            </mat-grid-tile>
+            <mat-grid-tile>
+               <p>
+              <mat-icon>compress</mat-icon>
+              Pressure: {{ weatherData.current.pressure_mb }} mb
+            </p>
+            </mat-grid-tile>
+           
+            <mat-grid-tile>
+              <div class="toggle-container">
+              <form [formGroup]="toggleForm">
+                <mat-radio-group formControlName="unit">
+                  <mat-radio-button color="primary" [value]="1">°C</mat-radio-button>
+                  <mat-radio-button  color="primary" [value]="2">°F</mat-radio-button>
+                </mat-radio-group>
+              </form>
+            </div>
+            </mat-grid-tile>
+            
+          </mat-grid-list>
+          </div>
+        </mat-tab>
+
+        <!--LOCATION-->
+        <mat-tab label="Location">
+          <div class="container-location">
+            <mat-grid-list cols="2" rowHeight="fit">
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>place</mat-icon>
+                  Name: {{ weatherData.location.name }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>my_location</mat-icon>
+                  Region: {{ weatherData.location.region }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>public</mat-icon>
+                  Country: {{ weatherData.location.country }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>location_city</mat-icon>
+                  City: {{ weatherData.location.name }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>schedule</mat-icon>
+                  Local Time: {{ weatherData.location.localtime }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>gps_fixed</mat-icon>
+                  Latitude: {{ weatherData.location.lat }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>gps_not_fixed</mat-icon>
+                  Longitude: {{ weatherData.location.lon }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>access_time</mat-icon>
+                  Time Zone: {{ weatherData.location.tz_id }}
+                </p>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
