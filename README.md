@@ -2,15 +2,15 @@
 Simple weather app, build with Angular TypeScript
 
 # Prerequisites:
-Ensure Node.js is installed on the system. You can download it from 'nodejs.org'.
+Ensure Node.js is installed on the system. You can download it from `nodejs.org`.
 
 ## Install Angular Cli 
-Open a terminal or command prompt and run 'npm install -g @angular/cli'
+Open a terminal or command prompt and run `npm install -g @angular/cli`
 This way, npm is available to use.
 
 
 ## Install Dependencies
-Navigate to the project directory and run 'npm install'.
+Navigate to the project directory and run `npm install`.
 This command will read the package.json file and install all the dependencies listed there into a newly created node_modules folder.
 
 
