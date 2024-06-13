@@ -16,7 +16,7 @@ This command will read the package.json file and install all the dependencies li
 
 
 ## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In command prompt or git bash, Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
