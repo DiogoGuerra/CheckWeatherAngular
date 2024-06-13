@@ -53,7 +53,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   overflow-y: hidden;
-  margin-top: 3rem;
+  margin-top: 2rem;
   align-items: center;
 
   @media (max-height: 500px) {
@@ -95,4 +95,9 @@ p {
 
 mat-icon {
   display: inline-table;
+}
+
+.container-city {
+  display: flex;
+  gap: 0.5rem;
 }

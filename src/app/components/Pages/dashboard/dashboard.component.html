@@ -1,6 +1,6 @@
 <div class="parent-container">
   <div class="container">
-     <!--Search-->
+    <!--Search-->
     <div class="container-searchbar">
       <app-searchbar
         [placeholder_text]="this.searchBarPlaceholder"
@@ -12,85 +12,95 @@
     <div class="error-message" *ngIf="errorMessage">
       {{ errorMessage }}
     </div>
- 
 
     <div class="grid-container" *ngIf="weatherData">
       <!--Weather-->
       <mat-tab-group>
         <mat-tab label="Weather">
           <div class="container-weather">
-            <mat-grid-list cols="2" rowHeight="fit">
             <div class="container-align-column">
-              <h2>Weather in {{ weatherData.location.name }}</h2>
+              <h2>Weather in {{ weatherData.location.name }}, {{ weatherData.location.country }}</h2>
               <img
                 [src]="weatherData.current.condition.icon"
                 alt="Weather icon"
               />
             </div>
-            <mat-grid-tile>
-              <p>
-                <mat-icon>thermostat</mat-icon>
-                Temperature: {{ getTemperature(weatherData.current.temp_c, weatherData.current.temp_f) }}°
-                {{ toggleForm.get('unit')?.value === 1 ? 'C' : 'F' }}
-              </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p>
-              <mat-icon>cloud</mat-icon>
-              Condition: {{ weatherData.current.condition.text }}
-            </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-             <p>
-              <mat-icon>air</mat-icon>
-              Wind Speed: {{ weatherData.current.wind_kph }} kph
-            </p> 
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p>
-              <mat-icon>explore</mat-icon>
-              Wind Direction: {{ weatherData.current.wind_dir }}
-            </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-              <p>
-              <mat-icon>opacity</mat-icon>
-              Humidity: {{ weatherData.current.humidity }}%
-            </p>
-            </mat-grid-tile>
-            <mat-grid-tile>
-               <p>
-              <mat-icon>compress</mat-icon>
-              Pressure: {{ weatherData.current.pressure_mb }} mb
-            </p>
-            </mat-grid-tile>
-           
-            <mat-grid-tile>
-              <div class="toggle-container">
-              <form [formGroup]="toggleForm">
-                <mat-radio-group formControlName="unit">
-                  <mat-radio-button color="primary" [value]="1">°C</mat-radio-button>
-                  <mat-radio-button  color="primary" [value]="2">°F</mat-radio-button>
-                </mat-radio-group>
-              </form>
-            </div>
-            </mat-grid-tile>
-            
-          </mat-grid-list>
+            <mat-grid-list cols="2" rowHeight="fit">
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>thermostat</mat-icon>
+                  Temperature:
+                  {{
+                    getTemperature(
+                      weatherData.current.temp_c,
+                      weatherData.current.temp_f
+                    )
+                  }}°
+                  {{ toggleForm.get("unit")?.value === 1 ? "C" : "F" }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>cloud</mat-icon>
+                  Condition: {{ weatherData.current.condition.text }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>air</mat-icon>
+                  Wind Speed: {{ weatherData.current.wind_kph }} kph
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>explore</mat-icon>
+                  Wind Direction: {{ weatherData.current.wind_dir }}
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>opacity</mat-icon>
+                  Humidity: {{ weatherData.current.humidity }}%
+                </p>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <p>
+                  <mat-icon>compress</mat-icon>
+                  Pressure: {{ weatherData.current.pressure_mb }} mb
+                </p>
+              </mat-grid-tile>
+
+              <mat-grid-tile>
+                <div class="toggle-container">
+                  <form [formGroup]="toggleForm">
+                    <mat-radio-group formControlName="unit">
+                      <mat-radio-button color="primary" [value]="1"
+                        >°C</mat-radio-button
+                      >
+                      <mat-radio-button color="primary" [value]="2"
+                        >°F</mat-radio-button
+                      >
+                    </mat-radio-group>
+                  </form>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
           </div>
         </mat-tab>
 
-       
-           <!-- Forecast -->
+        <!-- Forecast -->
         <mat-tab label="Forecast" *ngIf="weatherData">
           <div class="container-forecast">
-            <div class="forecast-day" *ngFor="let day of weatherData.forecast.forecastday">
+            <div
+              class="forecast-day"
+              *ngFor="let day of weatherData.forecast.forecastday"
+            >
               <h5>{{ day.date }}</h5>
               <img [src]="day.day.condition.icon" alt="Weather icon" />
               <p>
                 <mat-icon>thermostat</mat-icon>
                 {{ getTemperature(day.day.avgtemp_c, day.day.avgtemp_f) }}°
-                {{ toggleForm.get('unit')?.value === 1 ? 'C' : 'F' }}
+                {{ toggleForm.get("unit")?.value === 1 ? "C" : "F" }}
               </p>
               <p>
                 <mat-icon>cloud</mat-icon>
@@ -98,7 +108,7 @@
               </p>
               <p>
                 <mat-icon>air</mat-icon>
-               {{ day.day.maxwind_kph }} kph
+                {{ day.day.maxwind_kph }} kph
               </p>
               <p>
                 <mat-icon>opacity</mat-icon>
@@ -108,17 +118,18 @@
           </div>
         </mat-tab>
 
-
-
-         <!--LOCATION-->
+        <!--LOCATION-->
         <mat-tab label="Location">
           <div class="container-location">
             <mat-grid-list cols="2" rowHeight="fit">
               <mat-grid-tile>
-                <p>
-                  <mat-icon>place</mat-icon>
-                  Name: {{ weatherData.location.name }}
-                </p>
+                <div class="container-city">
+                  <h2>
+                    <mat-icon>place</mat-icon>
+                    {{ weatherData.location.name }},
+                    {{ weatherData.location.country }}
+                  </h2>
+                </div>
               </mat-grid-tile>
               <mat-grid-tile>
                 <p>
@@ -165,7 +176,6 @@
             </mat-grid-list>
           </div>
         </mat-tab>
-      
       </mat-tab-group>
     </div>
   </div>
