@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  private apiKey: string = 'd082497bfb6047c994c155849241206'; // MY Weather API key ( could expire)
+  private apiKey: string = 'd082497bfb6047c994c155849241206'; // MY Weather API key (TRIAL Ends on 26/Jun/2024)
   private apiUrl: string = 'https://api.weatherapi.com/v1';
 
   constructor(private http: HttpClient) { }
