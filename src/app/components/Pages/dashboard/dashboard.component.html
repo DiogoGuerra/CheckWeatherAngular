@@ -20,7 +20,7 @@
         <mat-tab label="Weather">
           <div class="container-weather">
             <mat-grid-list cols="2" rowHeight="fit">
-            <div class="container-gap">
+            <div class="container-align-column">
               <h2>Weather in {{ weatherData.location.name }}</h2>
               <img
                 [src]="weatherData.current.condition.icon"
@@ -29,11 +29,10 @@
             </div>
             <mat-grid-tile>
               <p>
-              <mat-icon>thermostat</mat-icon>
-              Temperature: {{ getTemperature() }}°{{
-                toggleForm.get('unit')?.value === 1 ? 'C' : 'F'
-              }}
-            </p>
+                <mat-icon>thermostat</mat-icon>
+                Temperature: {{ getTemperature(weatherData.current.temp_c, weatherData.current.temp_f) }}°
+                {{ toggleForm.get('unit')?.value === 1 ? 'C' : 'F' }}
+              </p>
             </mat-grid-tile>
             <mat-grid-tile>
               <p>
@@ -81,7 +80,37 @@
           </div>
         </mat-tab>
 
-        <!--LOCATION-->
+       
+           <!-- Forecast -->
+        <mat-tab label="Forecast" *ngIf="weatherData">
+          <div class="container-forecast">
+            <div class="forecast-day" *ngFor="let day of weatherData.forecast.forecastday">
+              <h5>{{ day.date }}</h5>
+              <img [src]="day.day.condition.icon" alt="Weather icon" />
+              <p>
+                <mat-icon>thermostat</mat-icon>
+                {{ getTemperature(day.day.avgtemp_c, day.day.avgtemp_f) }}°
+                {{ toggleForm.get('unit')?.value === 1 ? 'C' : 'F' }}
+              </p>
+              <p>
+                <mat-icon>cloud</mat-icon>
+                {{ day.day.condition.text }}
+              </p>
+              <p>
+                <mat-icon>air</mat-icon>
+               {{ day.day.maxwind_kph }} kph
+              </p>
+              <p>
+                <mat-icon>opacity</mat-icon>
+                {{ day.day.avghumidity }}%
+              </p>
+            </div>
+          </div>
+        </mat-tab>
+
+
+
+         <!--LOCATION-->
         <mat-tab label="Location">
           <div class="container-location">
             <mat-grid-list cols="2" rowHeight="fit">
@@ -136,6 +165,7 @@
             </mat-grid-list>
           </div>
         </mat-tab>
+      
       </mat-tab-group>
     </div>
   </div>

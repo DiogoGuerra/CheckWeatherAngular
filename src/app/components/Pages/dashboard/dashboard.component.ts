@@ -4,6 +4,7 @@ import { WeatherService } from 'src/app/services/weather.service';
 import { Weather } from 'src/app/models/weather.model';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -15,8 +16,8 @@ export class DashboardComponent {
   @ViewChild(SearchbarComponent) searchBarComponent!: SearchbarComponent;
   weatherData: Weather | null = null;
   errorMessage: string | null = null; 
+  
 
- 
   toggleForm: FormGroup;
   unitControl: FormControl;
 
@@ -47,10 +48,9 @@ export class DashboardComponent {
     );
   }
 
-  getTemperature(): number {
-    if (this.weatherData) {
-      return this.unitControl.value === 1 ? this.weatherData.current.temp_c : this.weatherData.current.temp_f;
-    }
-    return 1;
+  
+
+  getTemperature(tempC: number, tempF: number): number {
+    return this.unitControl.value === 1 ? tempC : tempF;
   }
 }
