@@ -22,7 +22,7 @@ export class DashboardComponent {
   unitControl: FormControl;
 
   //Placeholder for search bar
-  searchBarPlaceholder = 'Search the weather in your city';
+  searchBarPlaceholder = 'Check the weather in your city';
 
 
   constructor(private formBuilder: FormBuilder, private weatherService: WeatherService) { 
