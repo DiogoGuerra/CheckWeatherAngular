@@ -1,32 +1,66 @@
 # CheckWeatherAngular
-Simple weather app, build with Angular TypeScript
+Simple weather app, built with Angular and TypeScript.
 
-## Prerequisites:
-- Ensure Node.js is installed on the system. You can download it from `nodejs.org`.
-- Install Angular Cli: Open a terminal or command prompt and run `npm install -g @angular/cli`
-This way, npm is available to use.
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Install Dependencies](#install-dependencies)
+- [Development Server](#development-server)
+- [Build](#build)
+- [Usage](#usage)
+- [Technologies Used](#technologies-used)
+- [Further Help](#further-help)
+
+## Prerequisites
+
+- Ensure Node.js is installed on the system. You can download it from [nodejs.org](https://nodejs.org).
+- Install Angular CLI: Open a terminal or command prompt and run:
+
+  ```sh
+  npm install -g @angular/cli
+  ```
+
+  
 
 ## Install Dependencies
-Navigate to the project directory and run `npm install`.
+Navigate to the project directory and run:
+ ```sh
+  npm install
+  ```
 This command will read the package.json file and install all the dependencies listed there into a newly created node_modules folder.
 
 ## Development server
-In command prompt or git bash, Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+In command prompt or Git Bash, run:
 
-## Code scaffolding
+ ```sh
+  ng serve
+  ```
+Navigate to http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Usage
+- Enter a city name in the search bar and click the search button (or Enter).
+- View the current weather information and the forecast for the upcoming days.
+- Use the toggle switch to change the temperature unit between Celsius and Fahrenheit.
+
+
+## Technologies Used
+
+- Angular
+- Angular Material
+- Weather API (e.g., WeatherAPI.com)
+- TypeScript
+- SCSS
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-# App Funcionalities
-- The app starts in a dashboard, with a searchbar where the user can insert a location name.
-- If the location name exists, it will display the current weather in that location, along with options to view the 7-day forecast and more information about the location.
-- Users can also switch between Celsius and Fahrenheit for the temperature display.
+
+
+
   
