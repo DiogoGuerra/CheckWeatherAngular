@@ -52,7 +52,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - Angular
 - Angular Material
-- Weather API (e.g., WeatherAPI.com)
+- Weather API (https://www.weatherapi.com/)
 - TypeScript
 - SCSS
 
